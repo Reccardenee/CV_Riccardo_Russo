@@ -1,31 +1,46 @@
 # Riccardo Russo — Curriculum Vitae
 
-[![Build CV PDFs](https://github.com/Reccardenee/CV_Riccardo_Russo/actions/workflows/build-cv.yml/badge.svg)](https://github.com/Reccardenee/CV_Riccardo_Russo/actions/workflows/build-cv.yml)
+---
+
+## 🇮🇹 Italiano
 
 Curriculum Vitae di **Riccardo Russo** — Software Engineer & AI Engineer.
 
-Disponibile in due versioni:
-- **Italiano**
-- **English**
-
 Basato su [Awesome-CV](https://github.com/posquit0/Awesome-CV).
 
-## Download
+### Download
 
-Scarica l'ultima versione dei PDF dalla sezione [Releases](https://github.com/Reccardenee/CV_Riccardo_Russo/releases) di GitHub.
+Scarica l'ultima versione dei PDF dalla sezione [Releases](https://github.com/Reccardenee/CV_Riccardo_Russo/releases).
 
 - `Riccardo_Russo_CV_IT.pdf` — Versione italiana
+- `Riccardo_Russo_CV_EN.pdf` — Versione inglese
+
+---
+
+## 🇬🇧 English
+
+**Riccardo Russo**'s Curriculum Vitae — Software Engineer & AI Engineer.
+
+Based on [Awesome-CV](https://github.com/posquit0/Awesome-CV).
+
+### Download
+
+Download the latest PDFs from the [Releases](https://github.com/Reccardenee/CV_Riccardo_Russo/releases) page.
+
+- `Riccardo_Russo_CV_IT.pdf` — Italian version
 - `Riccardo_Russo_CV_EN.pdf` — English version
+
+---
 
 ## Build
 
-I PDF vengono generati automaticamente tramite **GitHub Actions** a ogni push su `main` e pubblicati come Release quando viene creato un tag.
+PDFs are automatically generated via **GitHub Actions** on every push to `main` and published as a Release when a tag is created.
 
-Per compilare localmente:
+To compile locally:
 
 ```bash
 xelatex resume-it.tex   # Versione italiana
 xelatex resume-en.tex   # English version
 ```
 
-Richiede XeLaTeX e i font Roboto + FontAwesome (inclusi nella repo).
+Requires XeLaTeX and the Roboto + FontAwesome fonts (included in the repo).
