@@ -1,0 +1,57 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[11pt, a4paper]{awesome-cv}
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+\fontdir[fonts/]
+
+\colorlet{awesome}{awesome-red}
+\setbool{acvSectionColorHighlight}{true}
+
+%-------------------------------------------------------------------------------
+% PERSONAL INFORMATION  (FROM FIRST TEMPLATE)
+%-------------------------------------------------------------------------------
+\photo[circle,noedge,right]{profile.png}
+
+\name{Riccardo}{Russo}
+\position{Software Engineer{\enskip\cdotp\enskip}AI Engineer}
+%\address{42-8, Bangbae-ro 15-gil, Seocho-gu, Seoul, 00681, Rep. of KOREA}
+
+%\mobile{(+82) 10-9030-1843}
+\email{riccardo.russo1997@libero.it}
+%\homepage{www.posquit0.com}
+\github{Reccardenee}
+\linkedin{reccardenee}
+
+%\quote{``Be the change that you want to see in the world."}
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+% HEADER FROM FIRST TEMPLATE (Right aligned)
+\makecvheader[L]
+\vspace{-7mm}
+
+% Footer (you can modify if needed)
+%\makecvfooter
+%  {\today}
+%  {Byungjin Park~~~·~~~Résumé}
+%  {\thepage}
+
+%-------------------------------------------------------------------------------
+% CV CONTENT FROM SECOND TEMPLATE
+%-------------------------------------------------------------------------------
+\input{resume/it/summary.tex}
+\input{resume/it/experience.tex}
+%\input{resume/it/honors.tex}
+%\input{resume/it/committees.tex}
+\input{resume/it/education.tex}
+\input{resume/it/writing.tex}
+\input{resume/it/presentation.tex}
+\input{resume/it/extracurricular.tex}
+
+%-------------------------------------------------------------------------------
+\end{document}

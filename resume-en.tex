@@ -1,0 +1,45 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+\documentclass[11pt, a4paper]{awesome-cv}
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+\fontdir[fonts/]
+
+\colorlet{awesome}{awesome-red}
+\setbool{acvSectionColorHighlight}{true}
+
+%-------------------------------------------------------------------------------
+% PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+\photo[circle,noedge,right]{profile.png}
+
+\name{Riccardo}{Russo}
+\position{Software Engineer{\enskip\cdotp\enskip}AI Engineer}
+
+\email{riccardo.russo1997@libero.it}
+\github{Reccardenee}
+\linkedin{reccardenee}
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makecvheader[L]
+\vspace{-7mm}
+
+%-------------------------------------------------------------------------------
+% CV CONTENT
+%-------------------------------------------------------------------------------
+\input{resume/en/summary.tex}
+\input{resume/en/experience.tex}
+%\input{resume/en/honors.tex}
+%\input{resume/en/committees.tex}
+\input{resume/en/education.tex}
+\input{resume/en/writing.tex}
+\input{resume/en/presentation.tex}
+\input{resume/en/extracurricular.tex}
+
+%-------------------------------------------------------------------------------
+\end{document}
