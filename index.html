@@ -3,8 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+
   <title>Riccardo Russo — CV</title>
   <meta name="description" content="Curriculum Vitae di Riccardo Russo — Software Engineer & AI Engineer">
+
+  <meta property="og:title" content="Riccardo Russo — CV">
+  <meta property="og:description" content="Software Engineer & AI Engineer">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://reccardenee.github.io/CV_Riccardo_Russo/">
+  <meta property="og:image" content="https://reccardenee.github.io/CV_Riccardo_Russo/profile.png">
+
+  <link rel="icon" href="assets/favicon.svg">
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -25,13 +35,11 @@
     </div>
 
     <div class="viewer-wrapper">
-      <iframe id="pdf-viewer" title="CV Preview" loading="lazy"></iframe>
+      <iframe id="pdf-viewer" title="CV Preview" loading="lazy" allowfullscreen></iframe>
     </div>
 
     <div class="download-section">
-      <a id="download-btn" class="download-btn" target="_blank" rel="noopener">
-        &#8595; Scarica PDF
-      </a>
+      <a id="download-btn" class="download-btn" target="_blank" rel="noopener">Scarica PDF</a>
     </div>
 
     <footer>
@@ -46,26 +54,36 @@
     };
 
     const LABELS = {
-      it: { download: '\u25b5 Scarica PDF', btn: 'Italiano' },
-      en: { download: '\u25b5 Download PDF', btn: 'English' }
+      it: { download: '\u2193 Scarica PDF', open: '\u2193 Apri PDF' },
+      en: { download: '\u2193 Download PDF', open: '\u2193 Open PDF' }
     };
 
-    let currentLang = 'it';
     const viewer = document.getElementById('pdf-viewer');
     const downloadBtn = document.getElementById('download-btn');
     const tabs = document.querySelectorAll('.tab-btn');
+    const viewerWrapper = document.querySelector('.viewer-wrapper');
+
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
     function updateViewer(lang) {
-      currentLang = lang;
       const pdfUrl = PDF_URLS[lang];
-      viewer.src = 'https://docs.google.com/viewer?url=' + encodeURIComponent(pdfUrl) + '&embedded=true';
+      localStorage.setItem('lang', lang);
+
       downloadBtn.href = pdfUrl;
-      downloadBtn.innerHTML = LABELS[lang].download;
+
+      if (isMobile) {
+        viewerWrapper.style.display = 'none';
+        downloadBtn.textContent = LABELS[lang].open;
+      } else {
+        viewerWrapper.style.display = 'block';
+        viewer.src = pdfUrl;
+        downloadBtn.textContent = LABELS[lang].download;
+      }
 
       tabs.forEach(btn => {
-        const isActive = btn.dataset.lang === lang;
-        btn.classList.toggle('active', isActive);
-        btn.setAttribute('aria-selected', isActive);
+        const active = btn.dataset.lang === lang;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-selected', active);
       });
     }
 
@@ -73,8 +91,8 @@
       btn.addEventListener('click', () => updateViewer(btn.dataset.lang));
     });
 
-    // Load default
-    updateViewer('it');
+    const savedLang = localStorage.getItem('lang') || 'it';
+    updateViewer(savedLang);
   </script>
 </body>
 </html>
