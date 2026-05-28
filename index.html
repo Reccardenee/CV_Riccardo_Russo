@@ -76,7 +76,7 @@
         downloadBtn.textContent = LABELS[lang].open;
       } else {
         viewerWrapper.style.display = 'block';
-        viewer.src = pdfUrl;
+        viewer.src = 'https://docs.google.com/viewer?url=' + encodeURIComponent(pdfUrl) + '&embedded=true';
         downloadBtn.textContent = LABELS[lang].download;
       }
 
