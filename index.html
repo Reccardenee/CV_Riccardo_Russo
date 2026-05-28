@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Riccardo Russo — CV</title>
+  <meta name="description" content="Curriculum Vitae di Riccardo Russo — Software Engineer & AI Engineer">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Riccardo Russo</h1>
+      <div class="title">Software Engineer &middot; AI Engineer</div>
+      <div class="social-links">
+        <a href="https://github.com/Reccardenee" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/reccardenee" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:riccardo.russo1997@libero.it">Email</a>
+      </div>
+    </header>
+
+    <div class="tabs" role="tablist">
+      <button class="tab-btn active" role="tab" aria-selected="true" data-lang="it">Italiano</button>
+      <button class="tab-btn" role="tab" aria-selected="false" data-lang="en">English</button>
+    </div>
+
+    <div class="viewer-wrapper">
+      <iframe id="pdf-viewer" title="CV Preview" loading="lazy"></iframe>
+    </div>
+
+    <div class="download-section">
+      <a id="download-btn" class="download-btn" target="_blank" rel="noopener">
+        &#8595; Scarica PDF
+      </a>
+    </div>
+
+    <footer>
+      <p>Ultimo aggiornamento: <a href="https://github.com/Reccardenee/CV_Riccardo_Russo/releases/latest" target="_blank" rel="noopener">vedi ultima release</a></p>
+    </footer>
+  </div>
+
+  <script>
+    const PDF_URLS = {
+      it: 'https://github.com/Reccardenee/CV_Riccardo_Russo/releases/latest/download/Riccardo_Russo_CV_IT.pdf',
+      en: 'https://github.com/Reccardenee/CV_Riccardo_Russo/releases/latest/download/Riccardo_Russo_CV_EN.pdf'
+    };
+
+    const LABELS = {
+      it: { download: '\u25b5 Scarica PDF', btn: 'Italiano' },
+      en: { download: '\u25b5 Download PDF', btn: 'English' }
+    };
+
+    let currentLang = 'it';
+    const viewer = document.getElementById('pdf-viewer');
+    const downloadBtn = document.getElementById('download-btn');
+    const tabs = document.querySelectorAll('.tab-btn');
+
+    function updateViewer(lang) {
+      currentLang = lang;
+      const pdfUrl = PDF_URLS[lang];
+      viewer.src = 'https://docs.google.com/viewer?url=' + encodeURIComponent(pdfUrl) + '&embedded=true';
+      downloadBtn.href = pdfUrl;
+      downloadBtn.innerHTML = LABELS[lang].download;
+
+      tabs.forEach(btn => {
+        const isActive = btn.dataset.lang === lang;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-selected', isActive);
+      });
+    }
+
+    tabs.forEach(btn => {
+      btn.addEventListener('click', () => updateViewer(btn.dataset.lang));
+    });
+
+    // Load default
+    updateViewer('it');
+  </script>
+</body>
+</html>
