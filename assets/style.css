@@ -89,9 +89,9 @@ header .title {
 }
 
 .tab-btn.active {
-  border-color: #c00;
-  color: #c00;
-  background: #fff5f5;
+  border-color: #DC3522;
+  color: #DC3522;
+  background: #fde8e5;
 }
 
 .viewer-wrapper {
@@ -119,7 +119,7 @@ header .title {
   align-items: center;
   gap: 0.5rem;
   padding: 0.7rem 2rem;
-  background: #c00;
+  background: #DC3522;
   color: #fff;
   text-decoration: none;
   border-radius: 8px;
@@ -129,7 +129,7 @@ header .title {
 }
 
 .download-btn:hover {
-  background: #a00;
+  background: #b82a1b;
 }
 
 footer {
